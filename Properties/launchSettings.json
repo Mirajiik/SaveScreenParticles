@@ -1,0 +1,19 @@
+{
+  "profiles": {
+    "Default": {
+      "commandName": "Project"
+    },
+    "Configure": {
+      "commandName": "Project",
+      "commandLineArgs": "/c"
+    },
+    "Preview": {
+      "commandName": "Project",
+      "commandLineArgs": "/p"
+    },
+    "FullScreen": {
+      "commandName": "Project",
+      "commandLineArgs": "/s"
+    }
+  }
+}
