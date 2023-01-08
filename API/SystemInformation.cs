@@ -4,9 +4,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HappyNewYearScreenSaver.API.pInvoke;
+using SaveScreenParticles.API.pInvoke;
 
-namespace HappyNewYearScreenSaver.API;
+namespace SaveScreenParticles.API;
 
 internal static class SystemInformation
 {

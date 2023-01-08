@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Point = System.Windows.Point;
 
-namespace HappyNewYearScreenSaver.API.pInvoke;
+namespace SaveScreenParticles.API.pInvoke;
 
 internal static class User32
 {

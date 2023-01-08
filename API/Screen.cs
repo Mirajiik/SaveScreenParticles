@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Interop;
-using HappyNewYearScreenSaver.API.pInvoke;
+using SaveScreenParticles.API.pInvoke;
 using Microsoft.Win32;
 using Point = System.Windows.Point;
-using Rect = HappyNewYearScreenSaver.API.pInvoke.Rect;
+using Rect = SaveScreenParticles.API.pInvoke.Rect;
 
-namespace HappyNewYearScreenSaver.API;
+namespace SaveScreenParticles.API;
 
 
 public class Screen

@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Markup;
 
-namespace HappyNewYearScreenSaver;
+namespace SaveScreenParticles;
 
 [MarkupExtensionReturnType(typeof(Duration))]
 public class TimeDuration : MarkupExtension

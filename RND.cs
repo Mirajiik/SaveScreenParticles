@@ -1,6 +1,6 @@
 ﻿using System.Windows.Markup;
 
-namespace HappyNewYearScreenSaver;
+namespace SaveScreenParticles;
 
 public class RND : MarkupExtension
 {

@@ -1,5 +1,5 @@
-﻿using HappyNewYearScreenSaver.API.pInvoke;
-using HappyNewYearScreenSaver.API;
+﻿using SaveScreenParticles.API.pInvoke;
+using SaveScreenParticles.API;
 using System.Data;
 using System.Windows;
 using System.Windows.Interop;
@@ -83,7 +83,7 @@ public partial class App
     private static Window CreateWindow(nint ParentHandle)
     {
         var window = new MainWindow();
-
+        //ViewModel.GenerateCollection();
         if (ParentHandle == default)
         {
             window.Loaded += (s, _) => ((Window)s).WindowState = WindowState.Maximized;

@@ -4,20 +4,38 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SaveScreenParticles"
-        Topmost="True"
         WindowStyle="None"
         Title="SaveScreenParticles"
         Height="450" Width="800">
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
     <Border Name="MainBorder">
         <Border.Background>
-            <ImageBrush ImageSource="img/picture.jpg" Stretch="Fill"/>
+            <ImageBrush ImageSource="/picture.jpg" Stretch="Fill"/>
         </Border.Background>
-        <ItemsControl >
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Ellipse/>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        <Grid>
+            <ItemsControl ItemsSource="{Binding points}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Ellipse Fill="White" Height="15" Width="15" Opacity="0.7">
+                                <Ellipse.Effect>
+                                    <BlurEffect Radius="15"/>
+                                </Ellipse.Effect>
+                                <Ellipse.RenderTransform>
+                                    <TranslateTransform X="{Binding X}" Y="{Binding Y}"/>
+                                </Ellipse.RenderTransform>
+                            </Ellipse>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
     </Border>
 </Window>

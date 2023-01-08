@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HappyNewYearScreenSaver.API.pInvoke;
+namespace SaveScreenParticles.API.pInvoke;
 
 internal static class Gdi32
 {

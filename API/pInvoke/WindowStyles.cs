@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HappyNewYearScreenSaver.API.pInvoke;
+namespace SaveScreenParticles.API.pInvoke;
 
 internal abstract class WindowStyles
 {

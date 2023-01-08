@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HappyNewYearScreenSaver.Extensions;
+namespace SaveScreenParticles.Extensions;
 
 internal static class RectangleEx
 {

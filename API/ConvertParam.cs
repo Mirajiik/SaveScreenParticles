@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HappyNewYearScreenSaver.API;
+namespace SaveScreenParticles.API;
 
 internal static class ConvertParam
 {

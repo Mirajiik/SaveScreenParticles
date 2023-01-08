@@ -9,11 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Using Include="HappyNewYearScreenSaver.Extensions" />
+    <None Remove="picture.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="SaveScreenParticles.Extensions" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="picture.jpg" />
   </ItemGroup>
 
 </Project>
