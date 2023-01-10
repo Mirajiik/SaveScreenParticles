@@ -30,7 +30,7 @@ namespace SaveScreenParticles
             public int X { get; set; }
             public int Y { get; set; }
             public Duration LifeTime { get; set; }
-
+            public Duration MoveTime { get; private set; }
 
             public Particle(int x, int y)
             {
@@ -40,6 +40,7 @@ namespace SaveScreenParticles
             public Particle(int x, int y, TimeSpan lifeTime) : this(x, y)
             {
                 LifeTime = new Duration(lifeTime);
+                MoveTime = new Duration(lifeTime*2);
             }
         }
 

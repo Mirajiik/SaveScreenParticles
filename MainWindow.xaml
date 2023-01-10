@@ -27,12 +27,12 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <Ellipse Fill="Red" Height="15" Width="15" Opacity="0">
+                            <Ellipse Fill="Blue" Height="15" Width="15" Opacity="0">
                                 <Ellipse.Effect>
                                     <BlurEffect Radius="15"/>
                                 </Ellipse.Effect>
                                 <Ellipse.RenderTransform>
-                                    <TranslateTransform X="{Binding X}" Y="{Binding Y}"/>
+                                    <TranslateTransform x:Name="Offset" X="{Binding X}" Y="{Binding Y}"/>
                                 </Ellipse.RenderTransform>
                                 <Ellipse.Triggers>
                                     <EventTrigger RoutedEvent="Loaded">
@@ -42,6 +42,12 @@
                                                                  Storyboard.TargetProperty="Opacity" By="0.7"
                                                                  RepeatBehavior="Forever" AutoReverse="True"
                                                                  EasingFunction="{StaticResource CubicEase}"/>
+                                                <DoubleAnimation Duration="{Binding MoveTime}" By="{local:RND -100, 100}"
+                                                                 Storyboard.TargetName="Offset" Storyboard.TargetProperty="X"
+                                                                 RepeatBehavior="Forever"/>
+                                                <DoubleAnimation Duration="{Binding MoveTime}" By="{local:RND -100, 100}"
+                                                                 Storyboard.TargetName="Offset" Storyboard.TargetProperty="Y"
+                                                                 RepeatBehavior="Forever"/>
                                             </Storyboard>
                                         </BeginStoryboard>
                                     </EventTrigger>
