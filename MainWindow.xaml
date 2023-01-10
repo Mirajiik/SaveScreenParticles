@@ -10,9 +10,12 @@
     <Window.DataContext>
         <local:ViewModel/>
     </Window.DataContext>
+    <Window.Resources>
+        <CubicEase x:Key="CubicEase" EasingMode="EaseInOut"/>
+    </Window.Resources>
     <Border Name="MainBorder">
         <Border.Background>
-            <ImageBrush ImageSource="/picture.jpg" Stretch="Fill"/>
+            <ImageBrush ImageSource="{Binding Picture}" Stretch="Fill"/>
         </Border.Background>
         <Grid>
             <ItemsControl ItemsSource="{Binding points}">
@@ -24,13 +27,25 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <Ellipse Fill="White" Height="15" Width="15" Opacity="0.7">
+                            <Ellipse Fill="Red" Height="15" Width="15" Opacity="0">
                                 <Ellipse.Effect>
                                     <BlurEffect Radius="15"/>
                                 </Ellipse.Effect>
                                 <Ellipse.RenderTransform>
                                     <TranslateTransform X="{Binding X}" Y="{Binding Y}"/>
                                 </Ellipse.RenderTransform>
+                                <Ellipse.Triggers>
+                                    <EventTrigger RoutedEvent="Loaded">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <DoubleAnimation Duration="{Binding LifeTime}" 
+                                                                 Storyboard.TargetProperty="Opacity" By="0.7"
+                                                                 RepeatBehavior="Forever" AutoReverse="True"
+                                                                 EasingFunction="{StaticResource CubicEase}"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </Ellipse.Triggers>
                             </Ellipse>
                         </Grid>
                     </DataTemplate>
