@@ -9,19 +9,19 @@ using System.Windows.Media.Imaging;
 
 namespace SaveScreenParticles
 {
-    public class ViewModel
+    public class MainWindowViewModel
     {
-        Random rnd = new Random();
-
-        public ObservableCollection<Particle> points { get; set; } = new ObservableCollection<Particle>();
+        public ObservableCollection<Particle> Particles { get; set; } = new ObservableCollection<Particle>();
         public BitmapImage Picture { get; set; } = FindImage();
-        public ViewModel()
+        private Timer timer;
+        public MainWindowViewModel()
         {            
-            
-            for (int i = 0; i < 25; i++)
+            for (int i = 0; i < 5; i++)
             {
-                points.Add(new Particle(rnd.Next(-960, 960), rnd.Next(-540, 540), TimeSpan.FromSeconds(5)));
+                var (x, y) = GenerateRandomPosition();
+                Particles.Add(new Particle(x, y, TimeSpan.FromSeconds(5)));
             }
+            timer = new Timer(OffsetPosition, Particles, 0, 10000);
         }
 
 
@@ -42,6 +42,8 @@ namespace SaveScreenParticles
                 LifeTime = new Duration(lifeTime);
                 MoveTime = new Duration(lifeTime*2);
             }
+
+            
         }
 
         static private BitmapImage FindImage()
@@ -59,6 +61,21 @@ namespace SaveScreenParticles
             }
 
             return new BitmapImage(new Uri(fileNames.First(), UriKind.Relative));
+        }
+
+        static private (int, int) GenerateRandomPosition()
+        {
+            Random rnd = new Random();
+
+            return (x:rnd.Next(-960, 960), y:rnd.Next(-540, 540));
+        }
+
+        static public void OffsetPosition(object o)
+        {
+            foreach (var item in (ObservableCollection<Particle>)o)
+            {
+                (item.X, item.Y) = GenerateRandomPosition();
+            }
         }
     }
 }

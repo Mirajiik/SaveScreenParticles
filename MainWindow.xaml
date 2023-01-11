@@ -8,7 +8,7 @@
         Title="SaveScreenParticles"
         Height="450" Width="800">
     <Window.DataContext>
-        <local:ViewModel/>
+        <local:MainWindowViewModel/>
     </Window.DataContext>
     <Window.Resources>
         <CubicEase x:Key="CubicEase" EasingMode="EaseInOut"/>
@@ -18,7 +18,7 @@
             <ImageBrush ImageSource="{Binding Picture}" Stretch="Fill"/>
         </Border.Background>
         <Grid>
-            <ItemsControl ItemsSource="{Binding points}">
+            <ItemsControl ItemsSource="{Binding Particles}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <Grid/>
