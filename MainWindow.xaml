@@ -3,16 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:bh="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:local="clr-namespace:SaveScreenParticles"
+        xmlns:vm="clr-namespace:SaveScreenParticles.ViewModels"
         WindowStyle="None"
         Title="SaveScreenParticles"
         Height="450" Width="800">
     <Window.DataContext>
-        <local:MainWindowViewModel/>
+        <vm:MainWindowViewModel/>
     </Window.DataContext>
     <Window.Resources>
         <CubicEase x:Key="CubicEase" EasingMode="EaseInOut"/>
     </Window.Resources>
+    <bh:Interaction.Triggers>
+        <bh:EventTrigger EventName="Loaded">
+            <bh:InvokeCommandAction Command="{Binding StartTimersCommand}"/>
+        </bh:EventTrigger>
+    </bh:Interaction.Triggers>
     <Border Name="MainBorder">
         <Border.Background>
             <ImageBrush ImageSource="{Binding Picture}" Stretch="Fill"/>
@@ -27,9 +34,9 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <Ellipse Fill="Blue" Height="15" Width="15" Opacity="0">
+                            <Ellipse Fill="LightYellow" Height="15" Width="15" Opacity="0">
                                 <Ellipse.Effect>
-                                    <BlurEffect Radius="15"/>
+                                    <BlurEffect Radius="12"/>
                                 </Ellipse.Effect>
                                 <Ellipse.RenderTransform>
                                     <TranslateTransform x:Name="Offset" X="{Binding X}" Y="{Binding Y}"/>
